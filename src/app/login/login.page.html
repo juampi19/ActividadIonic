@@ -1,0 +1,46 @@
+<ion-header >
+  <ion-toolbar color="primary">
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <h1>SkeletonAPP</h1>
+
+  <form #formulario="ngForm" (ngSubmit)="onSubmit()">
+
+    <ion-list-header>
+      Bienvenido
+      
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Email:</ion-label>
+      <ion-input  type="email" 
+                placeholder="Email"
+                name="email"
+                [(ngModel)]="usuario.email"
+                pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" 
+                required=""></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Password</ion-label>
+      <ion-input type="password"
+                name="password"
+                [(ngModel)]="usuario.password"
+                required="" 
+                placeholder="Contraseña"
+                minlength="4"></ion-input>
+    </ion-item>
+
+    <ion-button
+    [disabled]="formulario.invalid" 
+    type="submit" expand="block">
+      Guardar
+    </ion-button>
+
+  </form>
+
+</ion-content>

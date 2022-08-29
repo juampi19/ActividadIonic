@@ -1,20 +1,73 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
+    <ion-title color="primary">
+      SkeletonAPP
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <h2>Bienvenido: <span>{{ user }}</span></h2>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+
+  <form #form="ngForm">
+
+    <ion-list>
+      
+      <ion-list-header>
+        <p>Información adicional</p>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label>nombre:</ion-label>
+        <ion-input  type="text" 
+                    placeholder="Tu Nombre"
+                    name="nombre"
+                    required=""></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Apellido:</ion-label>
+        <ion-input  type="text" 
+                    placeholder="Tu Apellido"
+                    name="Apellido"
+                    required=""></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Nivel Educacional:</ion-label>
+        <ion-select placeholder="Seleciona un nivel">
+          <ion-select-option value="apples">Educación Básica</ion-select-option>
+          <ion-select-option value="oranges">Educación Media</ion-select-option>
+          <ion-select-option value="bananas">Edicación Superior</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Fecha de Nacimiento</ion-label>
+        <ion-datetime display-format="DD.MM.YYYY HH:mm"></ion-datetime>
+      </ion-item>
+
+    </ion-list>
+
+    <div class="buttons">
+      <ion-button (click)="clear()" expand="block">
+        Limpiar
+      </ion-button>
+  
+      <ion-button 
+      [disabled]="form.invalid"
+      (click)="toast()" expand="block"
+      type="submit">
+        Guardar
+      </ion-button>
+    </div>
+
+  </form>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title color="primary">App desarrollada por mi</ion-title>
+  </ion-toolbar>
+</ion-footer>
